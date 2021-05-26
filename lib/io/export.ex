@@ -136,7 +136,8 @@ defmodule Plsm.IO.Export do
   defp belongs_to_output(project_name, column) do
     column_name = column.name |> String.trim_trailing("_id")
     table_name = Plsm.Database.TableHeader.table_name(column.foreign_table)
-    "\n" <> four_space("belongs_to :#{column_name}, #{project_name}.#{table_name}")
+    source = if column_name =~ "_uid", do: column_name, else: column_name <> "_id"
+    "\n" <> four_space("belongs_to :#{column_name}, #{project_name}.#{table_name}, source: :#{source}")
   end
 
   defp only_foreign_keys(columns) do
