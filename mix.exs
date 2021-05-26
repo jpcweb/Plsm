@@ -43,8 +43,7 @@ defmodule Plsm.Mixfile do
       source_url: "https://github.com/jhartwell/Plsm",
       homepage_url: "https://github.com/jhartwell/Plsm",
       links: %{"Github" => "https://github.com/jhartwell/Plsm"},
-      docs: [main: "Plsm",
-	     extras: ["README.md"]]
+      docs: [main: "Plsm", extras: ["README.md"]]
     ]
   end
 end

@@ -8,6 +8,7 @@ defmodule Plsm.Config.Config do
 
   def write(file_name) do
     config_exists? = File.exists?(file_name)
+
     case File.open(file_name, [:append]) do
       {:ok, file} -> IO.binwrite(file, output_config(config_exists?))
       _ -> {:error, "Could not open file #{file_name}. Please ensure that it exists."}

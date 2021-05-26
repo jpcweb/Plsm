@@ -27,7 +27,7 @@ defimpl Plsm.Database, for: Plsm.Database.MySql do
   def connect(db) do
     {_, conn} =
       MyXQL.start_link(
-	protocol: :tcp,
+        protocol: :tcp,
         hostname: db.server,
         username: db.username,
         port: db.port,
