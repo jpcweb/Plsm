@@ -182,3 +182,17 @@ CREATE TABLE public.approval_category (
                                           CONSTRAINT approval_category_pkey PRIMARY KEY (id),
                                           CONSTRAINT approval_category_sequence_id_fkey FOREIGN KEY (sequence_id) REFERENCES ir_sequence(id) ON DELETE SET NULL
 );
+
+CREATE TABLE public.auth_totp_wizard (
+                                         id serial NOT NULL,
+                                         user_id int4 NOT NULL,
+                                         secret varchar NOT NULL,
+                                         url varchar NULL,
+                                         qrcode bytea NULL,
+                                         code varchar(7) NULL,
+                                         create_uid int4 NULL,
+                                         create_date timestamp NULL,
+                                         write_uid int4 NULL,
+                                         write_date timestamp NULL,
+                                         CONSTRAINT auth_totp_wizard_pkey PRIMARY KEY (id)
+);
